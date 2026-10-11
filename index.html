@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ziniu Zheng · Software Engineer</title>
+  <meta name="description" content="Ziniu Zheng — EECS at UC Berkeley. Full-stack and backend engineer building web apps and AI tools.">
+  <meta property="og:title" content="Ziniu Zheng · Software Engineer">
+  <meta property="og:description" content="EECS @ UC Berkeley '27 · Full-stack & backend · AI tools">
+  <meta property="og:image" content="https://ziniuzheng.github.io/assets/onlineorder-cart.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#projects">Skip to projects</a>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="brand" href="#top">Ziniu Zheng</a>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <p class="eyebrow">EECS @ UC Berkeley '27 · Open to SWE roles</p>
+      <h1>Hi, I'm Ziniu. I build full-stack web apps and AI tools.</h1>
+      <p class="lede">
+        I like taking a product from an empty folder to something people can use: REST APIs and databases,
+        React frontends, browser extensions that talk to LLMs, and the tests, CI and cloud deployments that keep them working.
+      </p>
+      <div class="cta">
+        <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+        <a class="btn" href="https://github.com/ZiniuZheng" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/ziniu-zheng" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="mailto:ziniuzheng@berkeley.edu">Email</a>
+      </div>
+    </section>
+
+    <section id="projects" class="container section">
+      <h2 class="section-title">Projects</h2>
+
+      <article class="project">
+        <div class="project-head">
+          <div>
+            <h3>ContextLens</h3>
+            <p class="tagline">An AI assistant for any web page</p>
+          </div>
+          <div class="project-links">
+            <a class="link" href="https://github.com/ZiniuZheng/contextlens" target="_blank" rel="noopener">Source code ↗</a>
+          </div>
+        </div>
+        <p class="summary">
+          A Chrome extension: select text on any site and a floating panel lets you <strong>explain</strong>,
+          <strong>summarize</strong> or <strong>rewrite</strong> it with OpenAI or Anthropic models, with the answer
+          streaming in token by token — no copy-pasting into a separate chat window.
+        </p>
+        <figure class="media">
+          <img src="assets/contextlens.png" width="1320" height="290" loading="lazy"
+               alt="ContextLens panel under a selected paragraph, with Explain, Summarize, Rewrite and Copy buttons and a streamed answer">
+        </figure>
+        <ul class="highlights">
+          <li>Wrote an incremental <strong>Server-Sent Events parser</strong> that handles events split across network chunks; closing the panel aborts the in-flight request.</li>
+          <li>Rendered the panel in a <strong>closed Shadow DOM</strong> so page CSS and scripts can't touch it, and model output as text, never HTML.</li>
+          <li>Kept the API key in <code>chrome.storage.local</code>, used only by the service worker, with host permissions limited to the two model APIs.</li>
+          <li><strong>26 unit tests</strong> and a GitHub Actions pipeline (type-check, test, build) on every push; zero runtime dependencies.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li>TypeScript</li><li>Chrome Extension (MV3)</li><li>OpenAI &amp; Anthropic APIs</li><li>SSE streaming</li><li>GitHub Actions</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <div>
+            <h3>OnlineOrder</h3>
+            <p class="tagline">A food ordering web app, deployed on AWS</p>
+          </div>
+          <div class="project-links">
+            <span class="muted">Source available on request</span>
+          </div>
+        </div>
+        <p class="summary">
+          Browse restaurant menus, build a cart and check out. A Spring Boot REST backend with a React and Ant Design
+          frontend, backed by PostgreSQL and running on AWS ECS Fargate.
+        </p>
+        <figure class="media">
+          <video controls muted playsinline preload="metadata" poster="assets/onlineorder-cart.jpg" width="1600" height="856">
+            <source src="assets/onlineorder-demo.mp4" type="video/mp4">
+            Your browser can't play this video. <a href="assets/onlineorder-demo.mp4">Download the demo</a>.
+          </video>
+          <figcaption>Demo on the live AWS deployment: sign up, log in, add dishes to the cart, check out.</figcaption>
+        </figure>
+        <ul class="highlights">
+          <li>Built REST APIs for sign-up, menus, cart and checkout, layered into controllers, services and Spring Data JDBC repositories.</li>
+          <li>Secured endpoints with <strong>Spring Security</strong> session-based authentication and BCrypt; added <strong>Caffeine</strong> caching with per-customer eviction on cart updates.</li>
+          <li>Wrote <strong>27 JUnit 5 / Mockito tests</strong> for the service layer, including cache tests that verify <code>@Cacheable</code>/<code>@CacheEvict</code> behavior.</li>
+          <li>Deployed to <strong>AWS ECS Fargate</strong> behind an HTTPS load balancer with a private <strong>RDS PostgreSQL</strong> database; image built with Jib, plus one-command deploy and teardown scripts.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li>Java 21</li><li>Spring Boot</li><li>Spring Security</li><li>PostgreSQL</li><li>React</li><li>AWS ECS &amp; RDS</li><li>JUnit &amp; Mockito</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="skills" class="container section">
+      <h2 class="section-title">Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>Java, TypeScript, JavaScript, Kotlin, Go, Python, C</dd></div>
+        <div><dt>Backend</dt><dd>Spring Boot, Spring Security, Node.js, Express</dd></div>
+        <div><dt>Frontend</dt><dd>React, Ant Design, HTML/CSS, Chrome Extensions</dd></div>
+        <div><dt>Data &amp; cloud</dt><dd>PostgreSQL, MySQL, Elasticsearch, AWS (ECS, RDS, ECR), GCP</dd></div>
+        <div><dt>Testing &amp; tools</dt><dd>JUnit, Mockito, Git, GitHub Actions, Docker</dd></div>
+      </dl>
+    </section>
+
+    <section id="education" class="container section">
+      <h2 class="section-title">Education</h2>
+      <div class="edu">
+        <div>
+          <h3>University of California, Berkeley</h3>
+          <p>B.S. Electrical Engineering &amp; Computer Sciences</p>
+          <p class="muted">Coursework: Data Structures, Machine Structures, Algorithms, Artificial Intelligence, Computer Graphics</p>
+        </div>
+        <p class="when">Expected Dec 2027</p>
+      </div>
+    </section>
+
+    <section id="contact" class="container section contact">
+      <h2 class="section-title">Get in touch</h2>
+      <p>I'm looking for software engineering roles. The fastest way to reach me is email.</p>
+      <p><a class="email" href="mailto:ziniuzheng@berkeley.edu">ziniuzheng@berkeley.edu</a></p>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>© 2026 Ziniu Zheng</p>
+    <p><a href="https://github.com/ZiniuZheng" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/ziniu-zheng" target="_blank" rel="noopener">LinkedIn</a></p>
+  </footer>
+</body>
+</html>
