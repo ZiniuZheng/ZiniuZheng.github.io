@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ContextLens Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the ContextLens Chrome extension.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=2">
+  <style>
+    .policy { padding: 56px 0 48px; max-width: 720px; }
+    .policy h1 { margin: 0 0 6px; font-size: clamp(28px, 4vw, 36px); letter-spacing: -0.02em; }
+    .policy h2 { margin: 36px 0 8px; font-size: 19px; }
+    .policy p, .policy li { color: var(--text); }
+    .policy ul { padding-left: 20px; }
+    .policy li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="brand" href="../">Ziniu Zheng</a>
+      <ul class="nav-links">
+        <li><a href="../#contextlens">ContextLens</a></li>
+        <li><a href="https://github.com/ZiniuZheng/contextlens" target="_blank" rel="noopener">Source code</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container policy">
+    <h1>ContextLens Privacy Policy</h1>
+    <p class="muted">Last updated: October 10, 2026</p>
+
+    <p>
+      ContextLens is a Chrome extension that lets you select text on a web page and ask an AI model to explain,
+      summarize or rewrite it. This policy explains what data the extension handles. In short: the developer does not
+      collect, store or receive any of your data. ContextLens has no servers, analytics or tracking.
+    </p>
+
+    <h2>Data sent to the AI provider you choose</h2>
+    <p>Only when you click <strong>Explain</strong>, <strong>Summarize</strong> or <strong>Rewrite</strong> (or press the
+      keyboard shortcut), ContextLens sends the following directly from your browser to the AI provider you configured
+      (OpenAI or Anthropic):</p>
+    <ul>
+      <li>The text you selected, limited to 6,000 characters</li>
+      <li>The title of the current web page, to give the model context</li>
+      <li>The instruction for the action you chose</li>
+      <li>Your API key, which the provider requires to authenticate the request</li>
+    </ul>
+    <p>
+      Nothing is sent while you browse or select text without clicking an action. The extension can only make network
+      requests to <code>api.openai.com</code> and <code>api.anthropic.com</code>. How those providers handle the data is
+      governed by their own terms and privacy policies:
+      <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI</a> and
+      <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic</a>.
+    </p>
+
+    <h2>Data stored on your device</h2>
+    <p>
+      Your settings (provider, model name and API key) are saved in Chrome's local extension storage
+      (<code>chrome.storage.local</code>) on your device. They are not synced to your Google account and are never sent
+      to the developer. Selected text and AI responses are not saved; they are discarded when you close the panel.
+      You can delete everything by removing the extension.
+    </p>
+
+    <h2>What ContextLens does not do</h2>
+    <ul>
+      <li>It does not collect personal information, browsing history or analytics.</li>
+      <li>It does not sell or share data with anyone other than the AI provider you select.</li>
+      <li>It does not use data for advertising, credit decisions or any purpose other than answering your request.</li>
+      <li>It does not load or run remote code.</li>
+    </ul>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the updated version will be posted on this page with a new date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:ziniuzheng@berkeley.edu">ziniuzheng@berkeley.edu</a></p>
+  </main>
+
+  <footer class="container footer">
+    <p>© 2026 Ziniu Zheng</p>
+    <p><a href="../">Portfolio</a></p>
+  </footer>
+</body>
+</html>
