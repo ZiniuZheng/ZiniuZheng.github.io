@@ -140,6 +140,9 @@ code {
   border-radius: 10px;
   background: #000;
 }
+/* Near-square screen recordings: keep them from filling the whole viewport */
+.media .demo-loop { max-width: 640px; margin-inline: auto; background: var(--surface); }
+.media:has(.demo-loop) figcaption { text-align: center; }
 .media figcaption { margin-top: 8px; font-size: 14px; color: var(--muted); }
 
 .highlights { margin: 22px 0 0; padding-left: 20px; }

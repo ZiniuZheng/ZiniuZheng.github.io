@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
   <a class="skip" href="#projects">Skip to projects</a>
@@ -63,8 +63,11 @@
           streaming in token by token — no copy-pasting into a separate chat window.
         </p>
         <figure class="media">
-          <img src="assets/contextlens.png" width="1320" height="290" loading="lazy"
-               alt="ContextLens panel under a selected paragraph, with Explain, Summarize, Rewrite and Copy buttons and a streamed answer">
+          <video class="demo-loop" autoplay muted loop playsinline preload="metadata" poster="assets/contextlens-demo-poster.jpg" width="1280" height="1078"
+                 aria-label="ContextLens explaining, summarizing and rewriting selected text on a Wikipedia page, with answers streaming in">
+            <source src="assets/contextlens-demo.mp4" type="video/mp4">
+          </video>
+          <figcaption>Explain, Summarize and Rewrite on a Wikipedia article; answers stream in token by token.</figcaption>
         </figure>
         <ul class="highlights">
           <li>Wrote an incremental <strong>Server-Sent Events parser</strong> that handles events split across network chunks; closing the panel aborts the in-flight request.</li>
