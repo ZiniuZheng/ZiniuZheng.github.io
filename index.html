@@ -118,6 +118,39 @@
           <li>Java 21</li><li>Spring Boot</li><li>Spring Security</li><li>PostgreSQL</li><li>React</li><li>AWS ECS &amp; RDS</li><li>Docker</li><li>GitHub Actions</li><li>JUnit &amp; Mockito</li>
         </ul>
       </article>
+
+      <article class="project" id="agentai">
+        <div class="project-head">
+          <div>
+            <h3>Agent AI</h3>
+            <p class="tagline">Ask a PDF questions by text or voice</p>
+          </div>
+          <div class="project-links">
+            <span class="muted">Source available on request</span>
+          </div>
+        </div>
+        <p class="summary">
+          Upload a document and every question gets two answers: one <strong>retrieved from the PDF</strong>, and one
+          from a <strong>live web search</strong> run by a GPT-5 agent through an MCP server. Questions can be spoken,
+          and answers read aloud.
+        </p>
+        <figure class="media">
+          <video controls playsinline preload="metadata" poster="assets/agentai-demo-poster.jpg" width="1920" height="1026">
+            <source src="assets/agentai-demo.mp4" type="video/mp4">
+            Your browser can't play this video. <a href="assets/agentai-demo.mp4">Download the demo</a>.
+          </video>
+          <figcaption>Questions about "Attention Is All You Need", two typed and one spoken. Waiting time is sped up, as labeled in the video.</figcaption>
+        </figure>
+        <ul class="highlights">
+          <li>Built a <strong>RAG pipeline</strong> with LangChain: PDF loading, 500-character chunking, OpenAI embeddings and an in-memory vector store supplying context to GPT-5.</li>
+          <li>Wrote an <strong>MCP server</strong> exposing a SerpAPI <code>search_web</code> tool over stdio, and a GPT-5 <strong>tool-calling agent</strong> that writes its own search queries, using the document title to resolve references like "this paper".</li>
+          <li>Traced intermittent timeouts to SerpAPI stalling on about a third of uncached searches and added <strong>hedged requests</strong>; RAG and MCP run in parallel with isolated failures, cutting answer time from ~15s to 6–12s.</li>
+          <li>Express backend for uploads and Q&amp;A; React and Ant Design frontend with voice input and spoken answers via the Web Speech API.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li>React</li><li>Node.js</li><li>Express</li><li>LangChain</li><li>GPT-5</li><li>MCP</li><li>SerpAPI</li><li>Web Speech API</li>
+        </ul>
+      </article>
     </section>
 
     <section id="skills" class="container section">

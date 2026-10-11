@@ -9,6 +9,7 @@ plus my skills, education and resume. It supports light and dark mode and is lai
 
 - [ContextLens](https://github.com/ZiniuZheng/contextlens): a Chrome extension that explains, summarizes or rewrites selected text on any page with streaming LLM answers
 - OnlineOrder: a Spring Boot + React food-ordering app deployed on AWS ECS Fargate with RDS
+- Agent AI: a PDF Q&A app that answers from the document (RAG) and from web search through an MCP tool-calling agent, by text or voice
 
 ## Structure
 
