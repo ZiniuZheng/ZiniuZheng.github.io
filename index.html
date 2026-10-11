@@ -105,11 +105,12 @@
             <source src="assets/onlineorder-demo.mp4" type="video/mp4">
             Your browser can't play this video. <a href="assets/onlineorder-demo.mp4">Download the demo</a>.
           </video>
-          <figcaption>Demo on the live AWS deployment: sign up, log in, add dishes to the cart, check out.</figcaption>
+          <figcaption>Recorded on the AWS deployment: sign up, log in, add dishes to the cart, check out.</figcaption>
         </figure>
         <ul class="highlights">
           <li>Built REST APIs for sign-up, menus, cart and checkout, layered into controllers, services and Spring Data JDBC repositories.</li>
-          <li>Secured endpoints with <strong>Spring Security</strong> session-based authentication and BCrypt; added <strong>Caffeine</strong> caching with per-customer eviction on cart updates.</li>
+          <li>Secured endpoints with <strong>Spring Security</strong> session-based authentication and BCrypt password hashing.</li>
+          <li>Added <strong>Caffeine</strong> caching with per-customer eviction on cart updates; benchmarking 1,000 requests with the cache on vs. off <strong>halved median menu API latency</strong> (~1.8× sequential throughput, local database).</li>
           <li>Wrote <strong>27 JUnit 5 / Mockito tests</strong> for the service layer, including cache tests that verify <code>@Cacheable</code>/<code>@CacheEvict</code> behavior.</li>
           <li>Containerized with a multi-stage <strong>Docker</strong> build; <strong>GitHub Actions CI</strong> runs backend and frontend tests and smoke-tests the running container on every push.</li>
           <li>Deployed to <strong>AWS ECS Fargate</strong> behind an HTTPS load balancer with a private <strong>RDS PostgreSQL</strong> database, with one-command deploy and teardown scripts.</li>
