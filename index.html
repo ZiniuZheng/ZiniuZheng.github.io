@@ -152,16 +152,49 @@
           <li>React</li><li>Node.js</li><li>Express</li><li>LangChain</li><li>GPT-5</li><li>MCP</li><li>SerpAPI</li><li>Web Speech API</li>
         </ul>
       </article>
+
+      <article class="project" id="socialai">
+        <div class="project-head">
+          <div>
+            <h3>SocialAI</h3>
+            <p class="tagline">A social network where posts can start from an AI-generated image</p>
+          </div>
+          <div class="project-links">
+            <span class="muted">Source available on request</span>
+          </div>
+        </div>
+        <p class="summary">
+          Post photos and videos, find posts with <strong>full-text search</strong> by keyword or author, or describe a
+          picture and <strong>generate it with an OpenAI image model</strong> before posting. A Go backend on Google
+          Cloud with Elasticsearch and Cloud Storage, and a React frontend on AWS Amplify.
+        </p>
+        <figure class="media">
+          <video controls muted playsinline preload="metadata" poster="assets/socialai-demo-poster.jpg" width="1920" height="1026">
+            <source src="assets/socialai-demo.mp4" type="video/mp4">
+            Your browser can't play this video. <a href="assets/socialai-demo.mp4">Download the demo</a>.
+          </video>
+          <figcaption>Recorded on the live deployment: generate and post an image, upload a photo and a video, search, delete posts, and get sent back to login after logging out. Waiting time is sped up.</figcaption>
+        </figure>
+        <ul class="highlights">
+          <li>Built a <strong>Go REST API</strong> on Google App Engine, with <strong>Elasticsearch</strong> on a Compute Engine VM reachable only inside the VPC, media in <strong>Google Cloud Storage</strong>, and JWT-protected routes.</li>
+          <li>Moved OpenAI image generation into a <strong>JWT-protected backend endpoint</strong> so the API key never reaches the browser, and migrated from the retired DALL·E 3 to the GPT Image API with the model made configurable.</li>
+          <li>Fixed a <strong>signup race</strong> by creating users atomically in Elasticsearch (<code>op_type=create</code>, <code>refresh=wait_for</code>): an integration test fires <strong>10 concurrent signups and gets exactly 1 account</strong>. Passwords are hashed with bcrypt.</li>
+          <li><strong>42 Go tests</strong> (including integration tests against real Elasticsearch and a Cloud Storage emulator) and <strong>26 Jest / React Testing Library tests</strong>, run by GitHub Actions on every push.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li>Go</li><li>React</li><li>Elasticsearch</li><li>Google App Engine</li><li>Cloud Storage</li><li>AWS Amplify</li><li>OpenAI API</li><li>JWT</li><li>GitHub Actions</li>
+        </ul>
+      </article>
     </section>
 
     <section id="skills" class="container section">
       <h2 class="section-title">Skills</h2>
       <dl class="skills">
         <div><dt>Languages</dt><dd>Java, TypeScript, JavaScript, Go, Python, C</dd></div>
-        <div><dt>Backend</dt><dd>Spring Boot, Spring Security, Node.js, Express</dd></div>
-        <div><dt>Frontend</dt><dd>React, Ant Design, HTML/CSS, Chrome Extensions</dd></div>
-        <div><dt>Data &amp; cloud</dt><dd>PostgreSQL, MySQL, Elasticsearch, AWS (ECS, RDS, ECR), GCP</dd></div>
-        <div><dt>Testing &amp; tools</dt><dd>JUnit, Mockito, Git, GitHub Actions, Docker</dd></div>
+        <div><dt>Backend</dt><dd>Spring Boot, Spring Security, Node.js, Express, Go</dd></div>
+        <div><dt>Frontend</dt><dd>React, Ant Design, Material UI, HTML/CSS, Chrome Extensions</dd></div>
+        <div><dt>Data &amp; cloud</dt><dd>PostgreSQL, MySQL, Elasticsearch, AWS (ECS, RDS, ECR, Amplify), GCP (App Engine, Compute Engine, Cloud Storage)</dd></div>
+        <div><dt>Testing &amp; tools</dt><dd>JUnit, Mockito, Jest, React Testing Library, Git, GitHub Actions, Docker</dd></div>
       </dl>
     </section>
 
